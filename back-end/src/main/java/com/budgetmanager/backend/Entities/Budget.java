@@ -1,9 +1,6 @@
 package com.budgetmanager.backend.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +12,9 @@ import lombok.NoArgsConstructor;
 
 public class Budget {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private double limit;
     @OneToOne
     @JoinColumn(name = "category_id")
