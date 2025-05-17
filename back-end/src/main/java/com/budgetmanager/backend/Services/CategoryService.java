@@ -44,7 +44,12 @@ public class CategoryService {
         return convertToDto(updatedCategory);
     }
 
-    private CategoryDto convertToDto(Category category) {
+    public void deleteCategory(Long id) {
+        Category category = CR.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
+           CR.delete(category);
+    }
+        private CategoryDto convertToDto(Category category) {
         CategoryDto dto = new CategoryDto();
         dto.setId(category.getId());
         dto.setName(category.getName());

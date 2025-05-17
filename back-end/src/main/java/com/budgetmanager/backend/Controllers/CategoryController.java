@@ -34,10 +34,10 @@ public class CategoryController {
 
   @DeleteMapping("/Category/delete/{id}")
     public void  deleteCategory(@PathVariable Long id) {
-        categoryR.deleteById(id);
+        CS.deleteCategory(id);
   }
   @PutMapping("/Category/update/{id}")
-    public Category updateCategory(@PathVariable Long id, @RequestBody Category category) {
-        return categoryR.save(category);
+    public CategoryDto updateCategory(@PathVariable Long id, @RequestBody CategoryDto category) {
+        return CS.updateCategory(id,category);
   }
 }
