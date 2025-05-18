@@ -15,6 +15,7 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryRepository categoryR;
+
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryR = categoryRepository;
     }
@@ -36,8 +37,10 @@ public class CategoryController {
     public void  deleteCategory(@PathVariable Long id) {
         CS.deleteCategory(id);
   }
+
   @PutMapping("/Category/update/{id}")
     public CategoryDto updateCategory(@PathVariable Long id, @RequestBody CategoryDto category) {
         return CS.updateCategory(id,category);
   }
+
 }
